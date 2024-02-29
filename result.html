@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kết Quả Thi</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>Kết Quả Thi</h1>
+    <div id="resultInfo">
+        <!-- Kết quả sẽ được hiển thị ở đây -->
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const resultInfo = document.getElementById('resultInfo');
+
+    // Lấy thông tin cá nhân và điểm số từ localStorage
+    const fullName = localStorage.getItem('fullName');
+    const dob = localStorage.getItem('dob');
+    const studentID = localStorage.getItem('studentID');
+    const classValue = localStorage.getItem('class');
+    const score = localStorage.getItem('score');
+
+    // Hiển thị thông tin cá nhân và điểm số
+    resultInfo.innerHTML = `
+        <p><strong>Họ và Tên:</strong> ${fullName}</p>
+        <p><strong>Ngày Sinh:</strong> ${dob}</p>
+        <p><strong>Mã Sinh Viên:</strong> ${studentID}</p>
+        <p><strong>Lớp:</strong> ${classValue}</p>
+        <p><strong>Điểm Số:</strong> ${score}</p>
+    `;
+
+    // Xóa thông tin trong localStorage sau khi hiển thị kết quả
+    localStorage.removeItem('fullName');
+    localStorage.removeItem('dob');
+    localStorage.removeItem('studentID');
+    localStorage.removeItem('class');
+    localStorage.removeItem('score');
+});
+</script>
+</body>
+</html>
